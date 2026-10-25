@@ -12,7 +12,7 @@ img{max-width:100%;height:auto}
 a{color:var(--blue)} a:hover{color:var(--blue-dark)}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
 .skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:8px;z-index:9}
-h1,h2,h3,h4{font-family:var(--head);line-height:1.2;font-weight:500}
+h1,h2,h3,h4{font-family:var(--head);line-height:1.2;font-weight:500;scroll-margin-top:100px}
 h1{font-size:clamp(2rem,4vw,2.8rem);color:var(--olive-text);margin:.2em 0 .5em}
 h2{font-size:1.65rem;color:var(--blue);margin:1.6em 0 .4em}
 h3{font-size:1.3rem;color:var(--blue-dark);margin:1.3em 0 .3em}
