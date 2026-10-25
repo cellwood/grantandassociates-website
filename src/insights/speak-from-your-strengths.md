@@ -6,6 +6,8 @@ source: "2011-09-06-be-an-all-star-speak-from-your-strengths-3.md"
 ---
 # Be an All-Star: Speak from your Strengths
 
+![A speaker celebrating](/assets/img/insights/celebrate.jpg)
+
 Every speaker has strengths. In fact, we’ve identified [**ten top Speaking Strengths**™](/insights/speaking-strengths/) in our work with executives and leaders. Read the [full list](/insights/speaking-strengths/).
 
 ![Top Ten Speaking Strengths™](/assets/img/insights/Speaking_Strengths2.gif)

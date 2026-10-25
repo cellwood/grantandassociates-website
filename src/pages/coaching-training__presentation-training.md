@@ -7,6 +7,8 @@ related: ["/speaking-for-impact/", "/coaching-training/media-training/", "/coach
 ---
 # Presentation Training
 
+<img class="page-photo" src="/assets/img/pages/presenter.jpg" alt="A presenter engaging an audience" width="1400" height="933">
+
 Presentation training is focused on identifying and leveraging individual strengths for maximum speaking impact. Effective presenters are those who learn to refine their individual style to be compelling and memorable. In our years of experience working with executives, celebrities, TV professionals, and authors since 1997, we've found the greatest and most lasting improvements are gained when the speaker's strengths are identified and built upon by a seasoned trainer who provides personalized coaching. On-camera experience, feedback from peers, and knowledge of communication fundamentals are also used to help speakers fully integrate the coaching and experience the impact of their improved delivery.
 
 Grant and Associates has worked with executives and leaders in industries as diverse as financial services, healthcare, high technology, television, government, and non-profits. We've worked with CEOs, VPs, directors, board members, TV anchors, authors, athletes, and industry thought-leaders. What our clients have in common is their desire to use their voice to make a difference. It is one of our greatest pleasures to help them succeed.

@@ -6,7 +6,7 @@ source: "2012-04-13-yeah-but.md"
 ---
 # “Yeah, but…”
 
-![People Conversing](/assets/img/insights/iStock_000007894624Small_people_conversing-300x241.jpg)
+![People conversing](/assets/img/insights/people-conversing.jpg)
 
 I was at a party recently chatting with a small group of people when a new person entered the group, listened for a moment and then said “yeah, but…” As you might imagine, the group was ever-so-slightly put off. Why? Because “Yeah, but” is language that sets up opposition.
 

@@ -13,7 +13,7 @@ Founded in 1997, Grant and Associates specializes in working with communicators 
 
 ## About our principal, Judy Grant
 
-<img class="headshot" src="/assets/img/judy-grant.jpg" alt="Judy Grant" width="180" height="180">
+<img class="portrait" src="/assets/img/judy-grant-portrait.jpg" alt="Judy Grant" width="240" height="360">
 
 Judy Grant brought two decades of experience in front of and behind the camera to the training of business professionals, public figures and on-air talent. Her award-winning career covers all facets of news media, from reporting and television news anchoring to program management and producing.
 
