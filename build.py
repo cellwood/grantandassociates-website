@@ -218,6 +218,23 @@ def excerpt(body, limit=300):
     end = max(cut.rfind(". "), cut.rfind("? "), cut.rfind("! "))
     return cut[:end + 1] if end > 120 else cut.rsplit(" ", 1)[0] + "…"
 
+def img_width(path):
+    import struct
+    try: d = open(path, "rb").read(65536)
+    except OSError: return 0
+    if d[:8] == b"\x89PNG\r\n\x1a\n": return struct.unpack(">I", d[16:20])[0]
+    if d[:3] == b"GIF": return struct.unpack("<H", d[6:8])[0]
+    i = 2
+    while i < len(d) - 9:
+        if d[i] != 0xFF: i += 1; continue
+        m = d[i + 1]
+        if m in (0xC0, 0xC1, 0xC2): return struct.unpack(">H", d[i + 7:i + 9])[0]
+        i += 2 + struct.unpack(">H", d[i + 2:i + 4])[0]
+    return 0
+
+def sharp(src, min_w=480):
+    return src if img_width(SRC / src.lstrip("/").replace("assets/", "assets/", 1)) >= min_w else None
+
 def full_size(src):
     name = src.rsplit("/", 1)[-1]
     big = re.sub(r"-\d+x\d+(\.\w+)$", r"\1", name)
@@ -230,19 +247,18 @@ for p in sorted((SRC / "insights").glob("*.md")):
     body_wo_h1 = re.sub(r"^# .*\n", "", body, count=1, flags=re.M)
     img = re.search(r"!\[([^\]]*)\]\((/assets/img/insights/[^)]+)\)", body_wo_h1)
     lead = None
-    if img and body_wo_h1.find(img.group(0)) < 400:  # image at the top becomes the lead image
+    if img and body_wo_h1.find(img.group(0)) < 400 and sharp(full_size(img.group(2))):  # a sharp image at the top becomes the lead image
         lead = {"src": full_size(img.group(2)), "alt": img.group(1)}
         body_wo_h1 = body_wo_h1.replace(img.group(0), "", 1)
     words = len(plain(body_wo_h1).split())
     ARTICLES.append({"path": p, "fm": fm, "body": body_wo_h1, "url": f"/insights/{slug}/", "title": h1.group(1) if h1 else slug,
-                     "slug": slug, "lead": lead, "card_img": lead["src"] if lead else (full_size(img.group(2)) if img else None),
+                     "slug": slug, "lead": lead, "card_img": lead["src"] if lead else (sharp(full_size(img.group(2))) if img else None),
                      "excerpt": excerpt(body_wo_h1, 210), "minutes": max(1, round(words / 220)), "topic": fm.get("topic", "Presentation skills")})
 
 def topic_slug(t): return re.sub(r"[^a-z0-9]+", "-", t.lower().replace("™", "")).strip("-")
 
 def card_html(a, show_excerpt=True):
-    media = (f'<img src="{a["card_img"]}" alt="" loading="lazy">' if a["card_img"]
-             else f'<span class="card-mark" aria-hidden="true">{FAVICON}</span>')
+    media = f'<img src="{a["card_img"] or "/assets/mark-tile.svg"}" alt="" loading="lazy">'
     ex = f'<p>{html.escape(a["excerpt"])}</p>' if show_excerpt else ""
     return (f'<article class="post-card"><a class="post-media" href="{a["url"]}" tabindex="-1" aria-hidden="true">{media}</a>'
             f'<div class="post-body"><p class="post-topic">{a["topic"]}</p><h3><a href="{a["url"]}">{inline(a["title"])}</a></h3>{ex}'
