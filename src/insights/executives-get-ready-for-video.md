@@ -6,7 +6,7 @@ source: "2011-11-07-executives-get-ready-for-video.md"
 ---
 # Executives - Get Ready for Video
 
-![John Chambers Corporate Video](/assets/img/insights/John-Chambers-Corp-Video-300x170.jpg)
+![A camera operator filming an interview](/assets/img/insights/camera-crew.jpg)
 
 More and more executives are inquiring about training for video presentations. Organizations are using YouTube, video interviews, webcasts and website videos to reach a wide audience with key company messages delivered personally by the corporate leaders.
 
