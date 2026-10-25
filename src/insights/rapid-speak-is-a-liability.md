@@ -6,6 +6,8 @@ source: "2011-12-05-rapid-speak-is-a-liability.md"
 ---
 # Rapid Speak is a Liability
 
+![A cyclist in a blur of speed](/assets/img/insights/speed-blur.jpg)
+
 “**Rapid Speak**” gets a lot of people in trouble. What is rapid speak? *Speaking uncomfortably fast for the listener*.
 
 A number of years ago, FedEx ran a famous, amusing commercial that illustrates the tension produced by rapid speak.

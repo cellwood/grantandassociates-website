@@ -6,6 +6,8 @@ source: "2011-10-03-do-you-speak-with-command.md"
 ---
 # Do you speak with Command?
 
+![A presenter speaking confidently](/assets/img/insights/presenter-confident.jpg)
+
 **"Command**” is one of the **top ten Speaking Strengths**™ we have identified in our work with executives and leaders. Read about [all ten Speaking Strengths](/insights/speaking-strengths/).
 
 ### **Command **- *Powerful presence, in control*

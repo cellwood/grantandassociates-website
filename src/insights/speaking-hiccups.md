@@ -6,6 +6,8 @@ source: "2013-06-14-speaking-hiccups.md"
 ---
 # Speaking Hiccups
 
+![A microphone on an empty stage](/assets/img/insights/mic-stage.jpg)
+
 If you do enough public speaking, whether in front of an audience or a TV camera, you’re bound to run into some unpredictable glitch.
 
 Let’s take a look at Houston meteorologist David Paul who powered through an unexpected case of the hiccups. Whether you are a TV personality or an executive, you might face an unanticipated problem during your speaking engagement. Watch how he handles this, ah, hiccup:

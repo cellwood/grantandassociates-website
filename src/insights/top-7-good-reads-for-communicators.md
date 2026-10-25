@@ -6,6 +6,8 @@ source: "2012-08-23-top-7-good-reads-for-communicators.md"
 ---
 # Top 7 "Good Reads" for Communicators
 
+![Library shelves full of books](/assets/img/insights/library.jpg)
+
 As you might imagine, I’ve read dozens and dozens of books on communications. Here’s my short-list of “good reads.” None is new. For leaders, executives and other professional communicators, these books will stimulate your thinking, creativity and productivity, even if you read small bits at a time. Whether you are looking to improve your impact, strengthen your vocal instrument, or write well, your time will be well spent with these titles.
 
 [**The Right to Speak**](http://www.amazon.com/The-Right-Speak-Working-Voice/dp/0878300554/ref=sr_1_1?ie=UTF8&qid=1345588672&sr=8-1&keywords=The+Right+to+Speak%2C+by+Patsy+Rodenburg), by Patsy Rodenburg[**![The Right to Speak by Patsy Rodenburg](/assets/img/insights/The-Right-To-Speak-192x300.jpg)**](http://www.amazon.com/The-Right-Speak-Working-Voice/dp/0878300554/ref=sr_1_1?ie=UTF8&qid=1345588672&sr=8-1&keywords=The+Right+to+Speak%2C+by+Patsy+Rodenburg)

@@ -8,6 +8,8 @@ source: "speaking_strengths.pdf (2011)"
 ---
 # Speaking Strengths
 
+![A speaker celebrating](/assets/img/insights/celebrate.jpg)
+
 ## Heart: caring, compassionate
 
 Caring and concern about your content or audience is evident as you speak. Your heartfelt delivery connects you to the heart of your listener and they feel the significance of what you are saying.

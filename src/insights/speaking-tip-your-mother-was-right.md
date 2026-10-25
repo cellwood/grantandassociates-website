@@ -6,6 +6,8 @@ source: "2012-03-13-speaking-tip-your-mother-was-right.md"
 ---
 # Speaking Tip: Your mother was right
 
+![A mother and daughter laughing together](/assets/img/insights/mother-daughter.jpg)
+
 “Speak up!”, “Don’t mumble!”. Did you hear these words when you were growing up? If so, your mother was right. Poor enunciation and projection render otherwise good communication ineffective. When you speak, you want to be heard – literally. If you speak softly or do not enunciate clearly, your audience may not hear your message.
 
 You may recall the "Moses Supposes" routine from the movie "Signing in the Rain". Gene Kelly and Donald O'Connor meet with a voice coach to practice enunciating by reciting tongue twisters. When you enunciate, each word and syllable is given its due. Words are distinct from each other and you want to make it easy for your audience to distinguish between similar sounding words. The key: ** open your mouth**, **form the words**, and **form the syllables** that make up the word!

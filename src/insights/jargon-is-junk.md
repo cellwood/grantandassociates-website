@@ -6,6 +6,8 @@ source: "2012-09-11-jargon-is-junk.md"
 ---
 # Jargon is Junk
 
+![Colleagues puzzling over a document](/assets/img/insights/meeting-paper.jpg)
+
 ![Buzzwords and Jargon are bad for business communications](/assets/img/insights/Industry_Jargon_confuses_Xsmall_cropped-150x150.jpg)I was working with a client last week who riddled his speech with industry jargon and acronyms. I felt frustrated and confused trying to figure out what he was trying to say.
 
 I was reminded of a wonderful and amusing blog post I read late last year by Dan Pallotta ([@danpallotta](https://twitter.com/danpallotta)). It was published in his Harvard Business Review blog and was titled “[I Don’t Understand What Anyone is Saying Anymore](http://blogs.hbr.org/pallotta/2011/12/i-dont-understand-what-anyone.html)”. He points to the proliferation of acronyms, abstractions, Valley-speak and meaningless expressions.

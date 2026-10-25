@@ -8,6 +8,8 @@ source: "vocal_warmup.pdf (2010)"
 ---
 # Vocal Warm Ups
 
+![A vintage microphone](/assets/img/insights/vintage-mic.jpg)
+
 ## Earn a standing ovation
 
 Poor enunciation and projection renders otherwise good communication ineffective. When you speak, you want to be heard, literally. If you speak softly or do not enunciate clearly, your audience may not hear your message.

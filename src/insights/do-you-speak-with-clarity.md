@@ -6,6 +6,8 @@ source: "2012-06-12-do-you-speak-with-clarity.md"
 ---
 # Do you speak with Clarity?
 
+![A singing bowl](/assets/img/insights/singing-bowl.jpg)
+
 When addressing an audience, do you make your point simply? Are you unambiguous? Concise? If so, one of your **Speaking Strengths**™ is “**Clarity**.”
 
 **[Speaking Strength](/insights/speaking-strengths/): Clarity - ***Unambiguous, concise*

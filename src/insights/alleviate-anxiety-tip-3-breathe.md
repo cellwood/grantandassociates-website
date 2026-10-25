@@ -6,6 +6,8 @@ source: "2014-02-28-alleviate-anxiety-tip-3-breathe.md"
 ---
 # Alleviate Anxiety Tip #3: Breathe
 
+![An “and breathe” neon sign](/assets/img/insights/breathe.jpg)
+
 ![](/assets/img/insights/Breathe-198x300.png)This is the third post in a three-part series focused on helping you alleviate anxiety before giving a presentation.
 
 When clients tell me they feel anxious prior to their remarks, or, as they jump into the opening of remarks, or, the need to rush “to get all the material” covered, I ask them about their breathing. The answer almost always is that they are really not aware of their breathing. Once they focus on it, they realize they are breathing fast, a natural reaction to adrenaline released by the body when you are feeling anxious or fearful, or they are holding their breath.

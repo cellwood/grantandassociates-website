@@ -6,6 +6,8 @@ source: "2012-02-03-speaking-tip-reception-is-crucial-in-football-and-in-speakin
 ---
 # Speaking Tip: Reception is crucial in football and in speaking!
 
+![A football player diving for a catch](/assets/img/insights/football-catch.jpg)
+
 Reception. It's crucial in football and in speaking.
 
 ![Receiver poised to catch football](/assets/img/insights/1926_Image_Football_Receiver.jpg)

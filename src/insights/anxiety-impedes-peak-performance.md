@@ -6,6 +6,8 @@ source: "2011-09-06-anxiety-impedes-peak-performance.md"
 ---
 # Anxiety Impedes Peak Performance
 
+![A microphone in front of an audience](/assets/img/insights/microphone-crowd.jpg)
+
 How is speaking before a group like being a world-class swimmer?
 
 The performance of both can be impaired by worry and anxiety.

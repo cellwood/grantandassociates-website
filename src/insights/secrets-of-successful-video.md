@@ -8,6 +8,8 @@ source: "secrets_of_successful_video.pdf (2011)"
 ---
 # Secrets of Successful Video: Top Ten Pitfalls and How to Overcome Them
 
+![A video camera filming an interview](/assets/img/insights/video-shoot.jpg)
+
 1. **Smiling too much or not at all:** Use your "smiling eyes" to look approachable and interested.
 2. **Distracting movement:** Nodding, fiddling and excessive gestures distract the audience from you! Video shoots you close up so moving your head distracts. Stay steady! Let your voice create energy, not your head!
 3. **Posture:** Sit or stand up straight, no slouching. Good, erect posture makes you appear confident, strong and in command.
