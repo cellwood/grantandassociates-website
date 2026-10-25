@@ -24,7 +24,7 @@ Free-licence photos from Unsplash (no attribution required) unless noted.
 | pages/judy-on-camera.jpg | owner's video still |
 | insights/breathe.jpg | unsplash.com/photos/buymYm3RQ3U |
 | insights/microphone-crowd.jpg | unsplash.com/photos/LETdkk7wHQk |
-| insights/library-overhead.jpg | unsplash.com/photos/1mwPOXb_pB8 |
+| insights/open-books.jpg | unsplash.com/photos/LUGuCtvlk1Q |
 | insights/presenter-confident.jpg | unsplash.com/photos/Ra23FmCoeiQ |
 | insights/meeting-paper.jpg | unsplash.com/photos/O2o1hzDA7iE |
 | insights/speed-blur.jpg | unsplash.com/photos/ZbFoi92fyzY |

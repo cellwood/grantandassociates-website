@@ -6,7 +6,7 @@ source: "2012-12-04-books-to-expand-your-view-of-leadership.md"
 ---
 # Books to Expand Your View of Leadership
 
-![A library seen from above](/assets/img/insights/library-overhead.jpg)
+![Open books](/assets/img/insights/open-books.jpg)
 
 Reading can expand our minds and change our view of the world. Here is a list of interesting and engrossing books that will challenge your view of leadership.
 
