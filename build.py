@@ -76,6 +76,7 @@ def read_page(path):
 # ---------- Layout ----------
 
 LOGO = (Path(SRC / "assets" / "logo.svg").read_text())
+FAVICON = (Path(SRC / "assets" / "favicon.svg").read_text())
 
 def nav_html(current):
     items = []
@@ -102,7 +103,7 @@ def related_html(urls):
     links = "".join(f'<li><a href="{u}">{titles.get(u, u)}</a></li>' for u in urls)
     return f'<nav class="related" aria-label="Related"><h2>Related</h2><ul>{links}</ul></nav>'
 
-def page_html(fm, content, url):
+def page_html(fm, content, url, article=False):
     title = fm.get("title") or SITE["name"]
     desc = fm.get("description", SITE["description"])
     canonical = SITE["url"].rstrip("/") + url
@@ -113,6 +114,8 @@ def page_html(fm, content, url):
     if fm.get("quote") or fm.get("related"):
         aside = f'<aside class="side">{quote_html(fm.get("quote", ""))}{related_html(fm.get("related", []))}{'' if url.startswith('/contact/') else '<p class="side-cta"><a class="button" href="/contact/">Contact Judy</a></p>'}</aside>'
     layout = "home" if url == "/" else ("with-side" if aside else "single")
+    if article: layout += " article"
+    if fm.get("wide"): layout = "home"
     ld = ""
     if url == "/":
         ld = '<script type="application/ld+json">' + json.dumps({
@@ -199,11 +202,51 @@ for p in sorted((SRC / "pages").glob("*.md")):
     PAGES.append({"path": p, "fm": fm, "body": body, "url": url, "short": fm.get("short") or (h1.group(1) if h1 else fm.get("title", url))})
 
 ARTICLES = []
+IMG_DIR = SRC / "assets" / "img" / "insights"
+
+def plain(md):
+    t = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", md)
+    t = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", t)
+    t = re.sub(r"<[^>]+>|[*#>_]", "", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+def excerpt(body, limit=300):
+    paras = [plain(p) for p in body.split("\n\n") if p.strip() and not p.lstrip().startswith(("#", "!", "<", "-", "1."))]
+    text = " ".join(p for p in paras if p)
+    if len(text) <= limit: return text
+    cut = text[:limit]
+    end = max(cut.rfind(". "), cut.rfind("? "), cut.rfind("! "))
+    return cut[:end + 1] if end > 120 else cut.rsplit(" ", 1)[0] + "…"
+
+def full_size(src):
+    name = src.rsplit("/", 1)[-1]
+    big = re.sub(r"-\d+x\d+(\.\w+)$", r"\1", name)
+    return src.replace(name, big) if big != name and (IMG_DIR / big).exists() else src
+
 for p in sorted((SRC / "insights").glob("*.md")):
     fm, body = read_page(p)
     slug = p.stem
     h1 = re.search(r"^# (.*)", body, re.M)
-    ARTICLES.append({"path": p, "fm": fm, "body": body, "url": f"/insights/{slug}/", "title": h1.group(1) if h1 else slug, "slug": slug})
+    body_wo_h1 = re.sub(r"^# .*\n", "", body, count=1, flags=re.M)
+    img = re.search(r"!\[([^\]]*)\]\((/assets/img/insights/[^)]+)\)", body_wo_h1)
+    lead = None
+    if img and body_wo_h1.find(img.group(0)) < 400:  # image at the top becomes the lead image
+        lead = {"src": full_size(img.group(2)), "alt": img.group(1)}
+        body_wo_h1 = body_wo_h1.replace(img.group(0), "", 1)
+    words = len(plain(body_wo_h1).split())
+    ARTICLES.append({"path": p, "fm": fm, "body": body_wo_h1, "url": f"/insights/{slug}/", "title": h1.group(1) if h1 else slug,
+                     "slug": slug, "lead": lead, "card_img": lead["src"] if lead else (full_size(img.group(2)) if img else None),
+                     "excerpt": excerpt(body_wo_h1, 210), "minutes": max(1, round(words / 220)), "topic": fm.get("topic", "Presentation skills")})
+
+def topic_slug(t): return re.sub(r"[^a-z0-9]+", "-", t.lower().replace("™", "")).strip("-")
+
+def card_html(a, show_excerpt=True):
+    media = (f'<img src="{a["card_img"]}" alt="" loading="lazy">' if a["card_img"]
+             else f'<span class="card-mark" aria-hidden="true">{FAVICON}</span>')
+    ex = f'<p>{html.escape(a["excerpt"])}</p>' if show_excerpt else ""
+    return (f'<article class="post-card"><a class="post-media" href="{a["url"]}" tabindex="-1" aria-hidden="true">{media}</a>'
+            f'<div class="post-body"><p class="post-topic">{a["topic"]}</p><h3><a href="{a["url"]}">{inline(a["title"])}</a></h3>{ex}'
+            f'<p class="post-meta">{a["minutes"]} min read · <a href="{a["url"]}">Read more →</a></p></div></article>')
 
 def write(url_or_file, text):
     target = OUT / (url_or_file.strip("/") + "/index.html" if url_or_file.endswith("/") else url_or_file.lstrip("/"))
@@ -212,16 +255,21 @@ def write(url_or_file, text):
     target.write_text(text)
 
 def insights_list():
-    groups = {}
-    for a in ARTICLES:
-        groups.setdefault(a["fm"].get("topic", "Speaking tips"), []).append(a)
     order = DATA["site"]["insight_topics"]
-    out = []
-    for topic in order + [t for t in groups if t not in order]:
-        if topic not in groups: continue
-        items = "".join(f'<li><a href="{a["url"]}">{inline(a["title"])}</a>{"<span>" + inline(a["fm"]["summary"]) + "</span>" if a["fm"].get("summary") else ""}</li>' for a in sorted(groups[topic], key=lambda a: a["title"]))
-        out.append(f'<section class="topic"><h2>{topic}</h2><ul class="article-list">{items}</ul></section>')
+    topics = [t for t in order if any(a["topic"] == t for a in ARTICLES)]
+    chips = "".join(f'<a href="#{topic_slug(t)}">{t}</a>' for t in topics)
+    guides = [a for a in ARTICLES if a["topic"] == "Free guides"]
+    out = [f'<nav class="chips" aria-label="Topics">{chips}</nav>']
+    for t in topics:
+        items = sorted([a for a in ARTICLES if a["topic"] == t], key=lambda a: (a["card_img"] is None, a["title"]))
+        out.append(f'<section class="topic" id="{topic_slug(t)}"><h2>{t}</h2><div class="post-grid">' + "".join(card_html(a) for a in items) + "</div></section>")
     return "\n".join(out)
+
+def more_insights(a):
+    same = [x for x in ARTICLES if x["topic"] == a["topic"] and x is not a]
+    others = [x for x in ARTICLES if x["topic"] != a["topic"] and x["card_img"]]
+    pick = (same + others)[:3]
+    return '<section class="more"><h2>More insights</h2><div class="post-grid three">' + "".join(card_html(x, False) for x in pick) + "</div></section>"
 
 def form_html():
     fid = SITE.get("formspree_id", "")
@@ -251,8 +299,12 @@ def main():
     for a in ARTICLES:
         fm = dict(a["fm"]); fm.setdefault("related", ["/insights/", "/speaking-for-impact/", "/coaching-training/presentation-training/"])
         fm.setdefault("title", f'{re.sub(r"<[^>]+>", "", a["title"])} · Grant and Associates')
-        body = a["body"] + '\n\n<p class="back"><a href="/insights/">← All insights</a></p>'
-        write(a["url"], page_html(fm, render(body), a["url"]))
+        fm["description"] = fm.get("description") or a["excerpt"][:160]
+        head = (f'<header class="post-head"><p class="post-topic"><a href="/insights/#{topic_slug(a["topic"])}">{a["topic"]}</a></p>'
+                f'<h1>{inline(a["title"])}</h1><p class="post-meta">By Judy Grant · {a["minutes"]} min read</p></header>')
+        lead = f'<figure class="lead"><img src="{a["lead"]["src"]}" alt="{html.escape(a["lead"]["alt"])}"></figure>' if a["lead"] else ""
+        content = head + lead + '<div class="prose">' + render(a["body"]) + "</div>" + more_insights(a) + '<p class="back"><a href="/insights/">← All insights</a></p>'
+        write(a["url"], page_html(fm, content, a["url"], article=True))
     # redirects: meta-refresh pages for directory-style old addresses, plus a _redirects file for hosts that support it
     lines = []
     for old, new in DATA["redirects"].items():

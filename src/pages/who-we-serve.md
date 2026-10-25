@@ -7,18 +7,6 @@ related: ["/clients/", "/coaching-training/", "/speaking-for-impact/"]
 ---
 # Who We Serve
 
-## [Executives](/who-we-serve/executives/)
+Grant and Associates works with leaders and the people who develop them.
 
-Your ability to inspire, motivate, energize, and persuade your team and peers with the spoken word is critical to your success.
-
-## [Human Resources](/who-we-serve/human-resources/)
-
-Developing the communication skills of your staff can yield huge benefits for your organization.
-
-## [PR Firms](/who-we-serve/pr-firms/)
-
-Successful PR requires an effective corporate spokesperson.
-
-## [TV Stations](/who-we-serve/tv-stations/)
-
-On-air talent can be groomed and developed with proper professional coaching.
+<div class="svc-grid"><a class="svc" href="/who-we-serve/executives/"><img src="/assets/img/pages/executive-coaching.jpg" alt="" loading="lazy"><span>Executives<small>Inspire, motivate and persuade</small></span></a><a class="svc" href="/who-we-serve/human-resources/"><img src="/assets/img/pages/human-resources.jpg" alt="" loading="lazy"><span>Human Resources<small>Develop your leaders' communication</small></span></a><a class="svc" href="/who-we-serve/pr-firms/"><img src="/assets/img/pages/pr-firms.jpg" alt="" loading="lazy"><span>PR Firms<small>Prepare your clients' spokespeople</small></span></a><a class="svc" href="/who-we-serve/tv-stations/"><img src="/assets/img/pages/tv-stations.jpg" alt="" loading="lazy"><span>TV Stations<small>Bring out the best in on-air talent</small></span></a></div>

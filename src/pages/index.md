@@ -1,7 +1,7 @@
 ---
 title: Grant and Associates · Media and Presentation Coaching and Training
 description: Take your communications to a new level through personalized media relations and presentation coaching and training, built on your speaking strengths.
-eyebrow: Media and presentation coaching since 1997
+eyebrow: Media and presentation coaching and training
 hero: Supercharge your communications
 lede: Grant and Associates works with executives, public figures, and other professional communicators to elevate their speaking and media skills to a new level.
 ---
@@ -10,9 +10,9 @@ Our unique method includes identifying your strengths and providing personalized
 Founded in 1997, Grant and Associates has worked with clients in virtually every industry and leadership role from CEOs to vice presidents; physicians to attorneys; sports figures to authors; TV anchors to non-profit leaders. Effective, compelling communication is what drives the success of our clients and helping them elevate the power of their voice is what drives us. Whether preparing for a media interview, a keynote, a meeting, or some combination, our seasoned professionals can work with you to up your game.
 
 <div class="cards">
-<div class="card"><h3><a href="/coaching-training/presentation-training/">Presentation Training</a></h3><p>Presentations offer powerful opportunities to move people. An effective presenter can inspire, motivate action, influence decisions, and persuade people. Grant and Associates can help.</p></div>
-<div class="card"><h3><a href="/coaching-training/media-training/">Media Training</a></h3><p>Be prepared not just for print, television and radio but for podcasts, webinars and video as well: get your message across, be credible, handle tough questions, and look good on camera.</p></div>
-<div class="card"><h3><a href="/coaching-training/executive-coaching/">Executive Coaching</a></h3><p>Good leaders are invariably good communicators. Like a talented athlete, every speaker benefits from professional coaching. We work with executives to achieve their corporate and career goals by improving their speaking skills.</p></div>
+<div class="card"><a href="/coaching-training/presentation-training/"><img class="card-img" src="/assets/img/pages/presentation-training.jpg" alt="" loading="lazy"></a><h3><a href="/coaching-training/presentation-training/">Presentation Training</a></h3><p>Presentations offer powerful opportunities to move people. An effective presenter can inspire, motivate action, influence decisions, and persuade people. Grant and Associates can help.</p></div>
+<div class="card"><a href="/coaching-training/media-training/"><img class="card-img" src="/assets/img/pages/media-training.jpg" alt="" loading="lazy"></a><h3><a href="/coaching-training/media-training/">Media Training</a></h3><p>Be prepared not just for print, television and radio but for podcasts, webinars and video as well: get your message across, be credible, handle tough questions, and look good on camera.</p></div>
+<div class="card"><a href="/coaching-training/executive-coaching/"><img class="card-img" src="/assets/img/pages/executive-coaching.jpg" alt="" loading="lazy"></a><h3><a href="/coaching-training/executive-coaching/">Executive Coaching</a></h3><p>Good leaders are invariably good communicators. Like a talented athlete, every speaker benefits from professional coaching. We work with executives to achieve their corporate and career goals by improving their speaking skills.</p></div>
 </div>
 
 <div class="band">

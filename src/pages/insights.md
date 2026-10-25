@@ -2,6 +2,7 @@
 title: Insights on Speaking, Presentation and Media Skills · Grant and Associates
 description: Tips, advice and insights for executives and leaders on how to elevate their speaking skills, from Judy Grant.
 short: Insights
+wide: true
 ---
 # Insights
 

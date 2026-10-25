@@ -10,9 +10,7 @@ related: ["/speaking-for-impact/", "/coaching-training/custom-workshops/", "/cli
 
 Private one-to-one coaching, for many, is the most effective means to elevate a speaker's presentation and media skills. Coaching sessions can be tailored to the schedule and needs of the individual and privacy is assured. Where sensitive information is involved, in particular, private media and presentation coaching may be the only practical option. In addition to enhancing presentation and media skills, Grant and Associates can also provide message development, [speechwriting](/coaching-training/speechwriting/), image consulting, wardrobe consulting and other related services. On-camera experience is included in all engagements. Flexibility, customization and privacy are clear benefits of a private media and presentation coaching engagement.
 
-- [Executive Coaching](/coaching-training/executive-coaching/)
-- [On-Camera Coaching for TV Talent](/coaching-training/tv-talent/)
-- [Coaching for Celebrities](/coaching-training/celebrities/)
+<div class="svc-grid"><a class="svc" href="/coaching-training/executive-coaching/"><img src="/assets/img/pages/executive-coaching.jpg" alt="" loading="lazy"><span>Executive Coaching<small>Private coaching for leaders in the spotlight</small></span></a><a class="svc" href="/coaching-training/tv-talent/"><img src="/assets/img/pages/tv-talent.jpg" alt="" loading="lazy"><span>On-Camera Coaching for TV Talent<small>Connect with viewers</small></span></a><a class="svc" href="/coaching-training/celebrities/"><img src="/assets/img/pages/celebrities.jpg" alt="" loading="lazy"><span>Coaching for Celebrities<small>Athletes, authors and public figures</small></span></a></div>
 
 ## Media and Presentation Training
 
@@ -22,13 +20,8 @@ Communications have become more complex and diverse. Virtual communication such 
 
 Similarly, the media has also changed dramatically. In addition to traditional TV, print and radio journalists, executives now must deal with bloggers, online media, and anyone with a phone camera. Even a casual company meeting can end up online, making it imperative that executives and managers alike are well trained.
 
-- [Presentation Training](/coaching-training/presentation-training/)
-- [Media Training](/coaching-training/media-training/)
-- [Speaking for Impact®](/speaking-for-impact/)
-- [Custom Workshops](/coaching-training/custom-workshops/)
+<div class="svc-grid"><a class="svc" href="/coaching-training/presentation-training/"><img src="/assets/img/pages/presentation-training.jpg" alt="" loading="lazy"><span>Presentation Training<small>Workshops built on speaking strengths</small></span></a><a class="svc" href="/coaching-training/media-training/"><img src="/assets/img/pages/media-training.jpg" alt="" loading="lazy"><span>Media Training<small>Take control of every interview</small></span></a><a class="svc" href="/speaking-for-impact/"><img src="/assets/img/pages/speaking-for-impact.jpg" alt="" loading="lazy"><span>Speaking for Impact®<small>Our signature seminar</small></span></a><a class="svc" href="/coaching-training/custom-workshops/"><img src="/assets/img/pages/custom-workshops.jpg" alt="" loading="lazy"><span>Custom Workshops<small>Designed for your organization</small></span></a></div>
 
 ## Specialized coaching
 
-- [Teleprompter Training](/coaching-training/teleprompter/)
-- [Accent Reduction](/coaching-training/accent-reduction/)
-- [Speechwriting](/coaching-training/speechwriting/)
+<div class="svc-grid"><a class="svc" href="/coaching-training/teleprompter/"><img src="/assets/img/pages/teleprompter.jpg" alt="" loading="lazy"><span>Teleprompter Training<small>Speak naturally from a prompter</small></span></a><a class="svc" href="/coaching-training/accent-reduction/"><img src="/assets/img/pages/accent-reduction.jpg" alt="" loading="lazy"><span>Accent Reduction<small>Be heard and understood</small></span></a><a class="svc" href="/coaching-training/speechwriting/"><img src="/assets/img/pages/speechwriting.jpg" alt="" loading="lazy"><span>Speechwriting<small>Words that sound like you</small></span></a></div>

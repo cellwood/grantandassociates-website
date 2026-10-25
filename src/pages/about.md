@@ -13,6 +13,8 @@ Founded in 1997, Grant and Associates specializes in working with communicators 
 
 ## About our principal, Judy Grant
 
+<img class="headshot" src="/assets/img/judy-grant.jpg" alt="Judy Grant" width="180" height="180">
+
 Judy Grant brought two decades of experience in front of and behind the camera to the training of business professionals, public figures and on-air talent. Her award-winning career covers all facets of news media, from reporting and television news anchoring to program management and producing.
 
 After her initial work as an anchor and news director at KELO-TV in Sioux Falls, South Dakota, Grant entered the national market at CBS Network News in New York. As Night News Manager, she wrote and produced for some of the biggest names in broadcasting including Dan Rather, Charles Osgood, and Bill Kurtis.
