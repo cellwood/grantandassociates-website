@@ -300,7 +300,21 @@ def form_html():
 <p><label for="f-org">Organization <span class="opt">(optional)</span></label><input id="f-org" name="organization" autocomplete="organization"></p>
 <p><label for="f-msg">How can Judy help?</label><textarea id="f-msg" name="message" rows="6" required></textarea></p>
 <p><button class="button" type="submit">Send message</button></p>
-</form>"""
+<p class="form-error" hidden>Sorry, the message didn't go through. Please try again, or call 510.523.1112.</p>
+</form>""" + ("" if not live else """
+<script>
+// Formspree's free plan can't redirect to our own page, so send in the background and go to /contact/thanks/ ourselves.
+document.querySelector('.contact-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const f = e.target, btn = f.querySelector('button'), err = f.querySelector('.form-error');
+  btn.disabled = true; err.hidden = true;
+  try {
+    const r = await fetch(f.action, {method: 'POST', body: new FormData(f), headers: {Accept: 'application/json'}});
+    if (r.ok) { location.href = '/contact/thanks/'; return; }
+  } catch (_) {}
+  err.hidden = false; btn.disabled = false;
+});
+</script>""")
 
 def render(body):
     body = body.replace("{{insights}}", insights_list()).replace("{{contact_form}}", form_html())
@@ -321,16 +335,19 @@ def main():
         lead = f'<figure class="lead"><img src="{a["lead"]["src"]}" alt="{html.escape(a["lead"]["alt"])}"></figure>' if a["lead"] else ""
         content = head + lead + '<div class="prose">' + render(a["body"]) + "</div>" + more_insights(a) + '<p class="back"><a href="/insights/">← All insights</a></p>'
         write(a["url"], page_html(fm, content, a["url"], article=True))
-    # redirects: meta-refresh pages for directory-style old addresses, plus a _redirects file for hosts that support it
+    # redirects: meta-refresh pages for old .html and folder addresses, plus a _redirects file for hosts that support it.
+    # GitHub Pages downloads .php files instead of showing them, so old .php addresses are sent on by the 404 page instead.
     lines = []
     for old, new in DATA["redirects"].items():
         lines.append(f"{old} {new} 301")
-        target = old if old.endswith("/") else old
+        if old.endswith(".php"): continue
         page = f'<!doctype html><meta charset="utf-8"><title>Moved</title><link rel="canonical" href="{new}"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url={new}"><p>This page has moved to <a href="{new}">{new}</a>.</p>'
-        write(target if target.endswith("/") else target, page)
+        write(old, page)
     (OUT / "_redirects").write_text("\n".join(lines) + "\n")
-    # 404, sitemap, robots
-    write("/404.html", page_html({"title": "Page not found · Grant and Associates"}, markdown("# Page not found\n\nThat page isn't here. Try the [home page](/) or [Insights](/insights/), or [get in touch](/contact/)."), "/404.html"))
+    # 404 (also forwards old addresses), sitemap, robots
+    moved = json.dumps({o.lower(): n for o, n in DATA["redirects"].items()})
+    forward = f'<script>(function(){{var m={moved};var p=location.pathname.toLowerCase();var n=m[p]||m[p.replace(/\\/$/,"")]||m[p+"/"];if(n)location.replace(n);}})();</script>'
+    write("/404.html", page_html({"title": "Page not found · Grant and Associates"}, forward + markdown("# Page not found\n\nThat page isn't here. Try the [home page](/) or [Insights](/insights/), or [get in touch](/contact/)."), "/404.html"))
     urls = [p["url"] for p in PAGES if not p["fm"].get("noindex")] + [a["url"] for a in ARTICLES]
     (OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{SITE['url'].rstrip('/')}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
     (OUT / "robots.txt").write_text(("User-agent: *\nAllow: /\nSitemap: " + SITE["url"].rstrip("/") + "/sitemap.xml\n") if PRODUCTION else "User-agent: *\nDisallow: /\n")

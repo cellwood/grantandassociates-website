@@ -175,3 +175,4 @@ main.home{padding-top:40px}
 .book h3{margin:0 0 2px}
 .content .book-author{margin:0 0 .6em;color:var(--muted);font-size:.95rem}
 @media (max-width:600px){.book{grid-template-columns:80px 1fr;gap:16px}.content .book>a img{width:80px}}
+.form-error{color:#9b1c1c;font-size:.95rem}
