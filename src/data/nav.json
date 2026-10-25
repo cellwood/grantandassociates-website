@@ -1,0 +1,25 @@
+[
+  {"label": "Coaching &amp; Training", "url": "/coaching-training/", "children": [
+    {"label": "Overview", "url": "/coaching-training/"},
+    {"label": "Executive Coaching", "url": "/coaching-training/executive-coaching/"},
+    {"label": "Presentation Training", "url": "/coaching-training/presentation-training/"},
+    {"label": "Media Training", "url": "/coaching-training/media-training/"},
+    {"label": "On-Camera Coaching for TV Talent", "url": "/coaching-training/tv-talent/"},
+    {"label": "Coaching for Celebrities", "url": "/coaching-training/celebrities/"},
+    {"label": "Custom Workshops", "url": "/coaching-training/custom-workshops/"},
+    {"label": "Teleprompter Training", "url": "/coaching-training/teleprompter/"},
+    {"label": "Accent Reduction", "url": "/coaching-training/accent-reduction/"},
+    {"label": "Speechwriting", "url": "/coaching-training/speechwriting/"}
+  ]},
+  {"label": "Speaking for Impact®", "url": "/speaking-for-impact/"},
+  {"label": "Who We Serve", "url": "/who-we-serve/", "children": [
+    {"label": "Executives", "url": "/who-we-serve/executives/"},
+    {"label": "Human Resources", "url": "/who-we-serve/human-resources/"},
+    {"label": "PR Firms", "url": "/who-we-serve/pr-firms/"},
+    {"label": "TV Stations", "url": "/who-we-serve/tv-stations/"}
+  ]},
+  {"label": "About", "url": "/about/"},
+  {"label": "Clients", "url": "/clients/"},
+  {"label": "Insights", "url": "/insights/"},
+  {"label": "Contact", "url": "/contact/", "cta": true}
+]
