@@ -1,3 +1,5 @@
 docs/
 __pycache__/
 .DS_Store
+tools/content-doc/requests/
+tools/content-doc/index.json

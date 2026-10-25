@@ -32,6 +32,6 @@ Free-licence photos from Unsplash (no attribution required) unless noted.
 | insights/mic-stage.jpg | unsplash.com/photos/QrqeusbpFMM |
 | insights/football-catch.jpg | unsplash.com/photos/eH1yBJqxNgA |
 | insights/mother-daughter.jpg | unsplash.com/photos/zzl7_zgdTm4 |
-| insights/library.jpg | unsplash.com/photos/2JIvboGLeho |
+| insights/open-books.jpg | unsplash.com/photos/LUGuCtvlk1Q |
 | insights/vintage-mic.jpg | unsplash.com/photos/Y20JJ_ddy9M |
 | insights/camera-crew.jpg | unsplash.com/photos/fBwNDRgig_w |

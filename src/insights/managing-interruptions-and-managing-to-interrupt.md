@@ -1,6 +1,6 @@
 ---
 topic: "Leadership communication"
-description: "Like modern life, meetings, conversations, and public speaking often are full of interruptions. How do you keep from being interrupted? How can you politely interrupt when you need to be heard? Learn how to manage interruptions.\r\n "
+description: "Like modern life, meetings, conversations, and public speaking often are full of interruptions. How do you keep from being interrupted? How can you politely interrupt when you need to be heard? Learn how to manage interruptions. "
 summary: "Like modern life, meetings, conversations, and public speaking often are full of interruptions. How do you keep from being interrupted? How can you…"
 source: "2013-06-12-managing-interruptions-and-managing-to-interrupt.md"
 ---
