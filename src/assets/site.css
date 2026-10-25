@@ -1,6 +1,6 @@
 /* Grant and Associates. Colours and type taken from the original site (see playbook 01-brand-identity.md). */
 :root{
-  --blue:#006699; --blue-dark:#0b4a6b; --navy:#08304a; --olive:#8E9631; --olive-dark:#666600; --olive-text:#7a8020;
+  --blue:#005480; --blue-dark:#003d5e; --navy:#062f47; --olive:#939b50; --olive-dark:#666600; --olive-text:#7a8130; --olive-light:#c4c99c;
   --khaki:#CBCC98; --khaki-light:#f1f1e2; --ink:#2f3335; --muted:#5f6366; --line:#dcdcc8; --white:#fff;
   --head:"Archivo Narrow","Arial Narrow",Helvetica,Arial,sans-serif; --body:"Libre Franklin",Arial,Helvetica,sans-serif;
   --wrap:1120px;
@@ -41,10 +41,10 @@ hr{border:0;border-top:1px solid var(--line);margin:2em 0}
 
 /* hero */
 .hero{background:linear-gradient(120deg,var(--navy) 0%,var(--blue-dark) 55%,#1b6f99 100%);color:#fff;padding:56px 0 52px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;right:-60px;top:-40px;width:420px;height:420px;border-radius:50%;border:38px solid rgba(201,204,148,.13);box-shadow:0 0 0 70px rgba(201,204,148,.06)}
+.hero::after{content:"";position:absolute;right:-60px;top:-40px;width:420px;height:420px;border-radius:50%;border:38px solid rgba(196,201,156,.13);box-shadow:0 0 0 70px rgba(196,201,156,.06)}
 .hero h1{color:#fff;font-size:clamp(2.2rem,5vw,3.4rem);margin:0 0 .3em;max-width:22ch;position:relative;z-index:1}
-.hero .bang{color:#c9cc94;margin-left:.08em}
-.hero .eyebrow{font-family:var(--head);text-transform:uppercase;letter-spacing:.12em;color:#c9cc94;margin:0 0 .6em;position:relative;z-index:1}
+.hero .bang{color:#c4c99c;margin-left:.08em}
+.hero .eyebrow{font-family:var(--head);text-transform:uppercase;letter-spacing:.12em;color:#c4c99c;margin:0 0 .6em;position:relative;z-index:1}
 .hero .lede{font-size:1.2rem;max-width:60ch;color:#e8eef2;position:relative;z-index:1;margin:0}
 
 /* layout */
@@ -91,7 +91,7 @@ main.home .content > p{max-width:820px}
 .contact-form{max-width:560px}
 .contact-form label{display:block;font-weight:600;font-size:.95rem;margin-bottom:4px}
 .contact-form input,.contact-form textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid #b9bca3;border-radius:5px;background:#fff}
-.contact-form input:focus,.contact-form textarea:focus{outline:3px solid #c9cc94;border-color:var(--blue)}
+.contact-form input:focus,.contact-form textarea:focus{outline:3px solid #c4c99c;border-color:var(--blue)}
 .opt{font-weight:400;color:var(--muted)}
 .hp{position:absolute;left:-9999px}
 .notice{background:#fff7d6;border:1px solid #e6d58a;padding:10px 14px;border-radius:6px;font-size:.95rem}
