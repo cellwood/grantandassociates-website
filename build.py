@@ -317,9 +317,10 @@ document.querySelector('.contact-form').addEventListener('submit', async (e) => 
 </script>""")
 
 def render(body):
-    body = body.replace("{{insights}}", insights_list()).replace("{{contact_form}}", form_html())
+    body = body.replace("{{insights}}", insights_list())
     body = re.sub(r"\{\{quote:([\w-]+)\}\}", lambda m: quote_html(m.group(1)), body)
-    return markdown(body)
+    # The form goes in after markdown so its script isn't wrapped in <p> and flattened.
+    return re.sub(r"(<p>)?\{\{contact_form\}\}(</p>)?", lambda m: form_html(), markdown(body))
 
 def main():
     if OUT.exists(): shutil.rmtree(OUT)
