@@ -6,6 +6,6 @@ short: Thank you
 ---
 # Thank you
 
-Your message is on its way to Judy, who will be in touch soon.
+Your message is on its way. We'll get back to you soon.
 
 [Back to the home page](/) · [Read Judy's insights](/insights/)

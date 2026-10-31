@@ -25,4 +25,4 @@ Grant served as Vice President of News and Production for Preview Media, San Fra
 
 Since turning her talents exclusively to media and presentation training and consultation, Grant has worked with CEOs, senior executives, major city reporters, anchors, sports figures, and New York Times best-selling authors. She pioneered a ground-breaking method focused on identifying and amplifying a speaker's strengths that produces rapid, lasting results. Grant is a popular speaker in her own right and is passionate about helping people to find their voice.
 
-<p><a class="button" href="/contact/">Contact Judy</a></p>
+<p><a class="button" href="/contact/">Let's talk</a></p>

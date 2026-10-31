@@ -148,7 +148,7 @@ def page_html(fm, content, url, article=False):
         hero = f'<section class="hero"><div class="wrap"><p class="eyebrow">{fm.get("eyebrow", "")}</p><h1>{inline(fm["hero"])}<span class="bang" aria-hidden="true">!</span></h1>{"<p class=lede>" + inline(fm["lede"]) + "</p>" if fm.get("lede") else ""}</div></section>'
     aside = ""
     if fm.get("quote") or fm.get("related"):
-        aside = f'<aside class="side">{quote_html(fm.get("quote", ""))}{related_html(fm.get("related", []))}{'' if url.startswith('/contact/') else '<p class="side-cta"><a class="button" href="/contact/">Contact Judy</a></p>'}</aside>'
+        aside = f'<aside class="side">{quote_html(fm.get("quote", ""))}{related_html(fm.get("related", []))}{'' if url.startswith('/contact/') else '<p class="side-cta"><a class="button" href="/contact/">Let's talk</a></p>'}</aside>'
     layout = "home" if url == "/" else ("with-side" if aside else "single")
     if article: layout += " article"
     if fm.get("wide"): layout = "home"
@@ -333,7 +333,7 @@ def form_html():
 <p><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></p>
 <p><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></p>
 <p><label for="f-org">Organization <span class="opt">(optional)</span></label><input id="f-org" name="organization" autocomplete="organization"></p>
-<p><label for="f-msg">How can Judy help?</label><textarea id="f-msg" name="message" rows="6" required></textarea></p>
+<p><label for="f-msg">How can we help?</label><textarea id="f-msg" name="message" rows="6" required></textarea></p>
 <p><button class="button" type="submit">Send message</button></p>
 <p class="form-error" hidden>Sorry, the message didn't go through. Please try again, or call 510.523.1112.</p>
 </form>""" + ("" if not live else """
