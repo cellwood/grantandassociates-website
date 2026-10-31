@@ -103,6 +103,42 @@ def related_html(urls):
     links = "".join(f'<li><a href="{u}">{titles.get(u, u)}</a></li>' for u in urls)
     return f'<nav class="related" aria-label="Related"><h2>Related</h2><ul>{links}</ul></nav>'
 
+BASE = SITE["url"].rstrip("/")
+ORG, JUDY = BASE + "/#org", BASE + "/about/#judy"
+
+def schema_ld(fm, url, title, desc, canonical, article):
+    """JSON-LD for search engines and AI answers: who Judy and the firm are, what each page is, and where it sits."""
+    org = {"@type": "ProfessionalService", "@id": ORG, "name": SITE["name"], "url": SITE["url"], "foundingDate": "1997",
+           "description": SITE["description"], "telephone": SITE["phone_e164"], "logo": BASE + "/assets/logo.svg",
+           "image": BASE + "/assets/img/share.jpg", "founder": {"@id": JUDY}, "areaServed": "San Francisco Bay Area and nationwide",
+           "knowsAbout": ["Media training", "Presentation training", "Public speaking coaching", "Executive coaching", "Speechwriting", "TV talent coaching"]}
+    judy = {"@type": "Person", "@id": JUDY, "name": "Judy Grant", "jobTitle": "Principal", "worksFor": {"@id": ORG},
+            "url": BASE + "/about/", "image": BASE + "/assets/img/judy-grant-portrait.jpg",
+            "description": DATA["schema"]["judy_description"], "knowsAbout": org["knowsAbout"]}
+    graph = []
+    if url == "/":
+        graph += [org, judy, {"@type": "WebSite", "@id": BASE + "/#site", "url": SITE["url"], "name": SITE["name"], "publisher": {"@id": ORG}}]
+    elif url == "/about/":
+        graph += [org, judy, {"@type": "ProfilePage", "url": canonical, "name": title, "mainEntity": {"@id": JUDY}}]
+    elif article:
+        graph.append({"@type": "Article", "headline": fm["headline"], "description": desc, "url": canonical,
+                      "mainEntityOfPage": canonical, "author": {"@type": "Person", "@id": JUDY, "name": "Judy Grant", "url": BASE + "/about/"},
+                      "publisher": {"@id": ORG, "@type": "ProfessionalService", "name": SITE["name"]}, "articleSection": fm.get("topic", ""),
+                      **({"datePublished": fm["date"]} if fm.get("date") else {}), **({"image": BASE + fm["image"]} if fm.get("image") else {})})
+    elif url.startswith(("/coaching-training/", "/speaking-for-impact/")):
+        graph.append({"@type": "Service", "name": re.sub(r" ·.*| \|.*", "", title), "description": desc, "url": canonical,
+                      "provider": {"@id": ORG, "@type": "ProfessionalService", "name": SITE["name"]}, "areaServed": org["areaServed"]})
+    # breadcrumbs: Home › parent section › this page
+    parts = [p for p in url.strip("/").split("/") if p]
+    if parts and not url.endswith(".html"):
+        names = {p["url"]: p["short"] for p in PAGES}
+        crumbs = [("Home", "/")] + [(names.get("/" + "/".join(parts[:i + 1]) + "/") or (fm.get("headline") if i == len(parts) - 1 else None), "/" + "/".join(parts[:i + 1]) + "/") for i in range(len(parts))]
+        crumbs = [c for c in crumbs if c[0]]
+        if len(crumbs) > 1:
+            graph.append({"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": re.sub(r"<[^>]+>", "", n), "item": BASE + u} for i, (n, u) in enumerate(crumbs)]})
+    if not graph: return ""
+    return '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False) + "</script>\n"
+
 def page_html(fm, content, url, article=False):
     title = fm.get("title") or SITE["name"]
     desc = fm.get("description", SITE["description"])
@@ -116,13 +152,8 @@ def page_html(fm, content, url, article=False):
     layout = "home" if url == "/" else ("with-side" if aside else "single")
     if article: layout += " article"
     if fm.get("wide"): layout = "home"
-    ld = ""
-    if url == "/":
-        ld = '<script type="application/ld+json">' + json.dumps({
-            "@context": "https://schema.org", "@type": "ProfessionalService", "name": SITE["name"],
-            "url": SITE["url"], "foundingDate": "1997", "description": SITE["description"],
-            "founder": {"@type": "Person", "name": "Judy Grant"}, "telephone": SITE["phone_e164"],
-            "areaServed": "San Francisco Bay Area and nationwide"}) + "</script>"
+    ld = schema_ld(fm, url, title, desc, canonical, article)
+    image = BASE + (fm.get("image") or "/assets/img/share.jpg")
     analytics = SITE.get("analytics_snippet", "") if PRODUCTION else ""
     robots = "" if PRODUCTION else '<meta name="robots" content="noindex">'
     return f"""<!doctype html>
@@ -137,8 +168,10 @@ def page_html(fm, content, url, article=False):
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{'article' if article else 'website'}">
 <meta property="og:site_name" content="{SITE['name']}">
+<meta property="og:image" content="{image}">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -331,6 +364,10 @@ def main():
         fm = dict(a["fm"]); fm.setdefault("related", ["/insights/", "/speaking-for-impact/", "/coaching-training/presentation-training/"])
         fm.setdefault("title", f'{re.sub(r"<[^>]+>", "", a["title"])} · Grant and Associates')
         fm["description"] = fm.get("description") or a["excerpt"][:160]
+        fm["headline"] = re.sub(r"<[^>]+>", "", a["title"])
+        d = re.match(r"(\d{4}-\d{2}-\d{2})-", fm.get("source", ""))
+        if d: fm["date"] = d.group(1)
+        if a["card_img"]: fm["image"] = a["card_img"]
         head = (f'<header class="post-head"><p class="post-topic"><a href="/insights/#{topic_slug(a["topic"])}">{a["topic"]}</a></p>'
                 f'<h1>{inline(a["title"])}</h1><p class="post-meta">By Judy Grant · {a["minutes"]} min read</p></header>')
         lead = f'<figure class="lead"><img src="{a["lead"]["src"]}" alt="{html.escape(a["lead"]["alt"])}"></figure>' if a["lead"] else ""
@@ -352,6 +389,15 @@ def main():
     urls = [p["url"] for p in PAGES if not p["fm"].get("noindex")] + [a["url"] for a in ARTICLES]
     (OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{SITE['url'].rstrip('/')}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
     (OUT / "robots.txt").write_text(("User-agent: *\nAllow: /\nSitemap: " + SITE["url"].rstrip("/") + "/sitemap.xml\n") if PRODUCTION else "User-agent: *\nDisallow: /\n")
+    # llms.txt: a plain summary of the site for AI tools (llmstxt.org)
+    sec = lambda pre: "".join(f"- [{p['short']}]({BASE}{p['url']}): {p['fm'].get('description', '')}\n" for p in PAGES if p["url"].startswith(pre) and p["url"] != pre and not p["fm"].get("noindex"))
+    (OUT / "llms.txt").write_text(f"# {SITE['name']}\n\n> {SITE['description']}\n\n"
+        f"Principal: Judy Grant. {DATA['schema']['judy_description']} Phone: {SITE['phone']}. Contact: {BASE}/contact/\n\n"
+        f"## About\n\n- [About Judy Grant]({BASE}/about/): {next(p['fm'].get('description', '') for p in PAGES if p['url'] == '/about/')}\n"
+        f"- [Speaking for Impact®]({BASE}/speaking-for-impact/): {next(p['fm'].get('description', '') for p in PAGES if p['url'] == '/speaking-for-impact/')}\n"
+        f"- [Clients]({BASE}/clients/)\n\n"
+        f"## Coaching and training\n\n{sec('/coaching-training/')}\n## Who we serve\n\n{sec('/who-we-serve/')}\n"
+        f"## Insights (articles by Judy Grant)\n\n" + "".join(f"- [{re.sub(r'<[^>]+>', '', a['title'])}]({BASE}{a['url']}): {a['excerpt']}\n" for a in ARTICLES))
     if PRODUCTION and SITE.get("cname"): (OUT / "CNAME").write_text(SITE["cname"] + "\n")
     print(f"Built {len(PAGES)} pages, {len(ARTICLES)} articles, {len(DATA['redirects'])} redirects into {OUT.relative_to(ROOT)}/")
 
