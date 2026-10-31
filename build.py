@@ -153,6 +153,8 @@ def page_html(fm, content, url, article=False):
     if article: layout += " article"
     if fm.get("wide"): layout = "home"
     ld = schema_ld(fm, url, title, desc, canonical, article)
+    if url == "/" and SITE.get("bing_verification"):  # Bing Webmaster Tools ownership check
+        ld += f'<meta name="msvalidate.01" content="{SITE["bing_verification"]}">\n'
     image = BASE + (fm.get("image") or "/assets/img/share.jpg")
     analytics = SITE.get("analytics_snippet", "") if PRODUCTION else ""
     robots = "" if PRODUCTION else '<meta name="robots" content="noindex">'
