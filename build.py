@@ -148,7 +148,7 @@ def page_html(fm, content, url, article=False):
         hero = f'<section class="hero"><div class="wrap"><p class="eyebrow">{fm.get("eyebrow", "")}</p><h1>{inline(fm["hero"])}<span class="bang" aria-hidden="true">!</span></h1>{"<p class=lede>" + inline(fm["lede"]) + "</p>" if fm.get("lede") else ""}</div></section>'
     aside = ""
     if fm.get("quote") or fm.get("related"):
-        aside = f'<aside class="side">{quote_html(fm.get("quote", ""))}{related_html(fm.get("related", []))}{'' if url.startswith('/contact/') else '<p class="side-cta"><a class="button" href="/contact/">Let's talk</a></p>'}</aside>'
+        aside = f'<aside class="side">{quote_html(fm.get("quote", ""))}{related_html(fm.get("related", []))}{'' if url.startswith('/contact/') else '<p class="side-cta"><a class="button" href="/contact/">Let’s talk</a></p>'}</aside>'
     layout = "home" if url == "/" else ("with-side" if aside else "single")
     if article: layout += " article"
     if fm.get("wide"): layout = "home"

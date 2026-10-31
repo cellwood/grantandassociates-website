@@ -48,4 +48,4 @@ Judy Grant brought two decades of experience in front of and behind the camera, 
 
 We work with [executives](/who-we-serve/executives/), [human resources](/who-we-serve/human-resources/) leaders developing their talent, [PR firms](/who-we-serve/pr-firms/) preparing their clients' spokespeople, and [TV stations](/who-we-serve/tv-stations/) bringing out the best in their on-air talent.
 
-<p><a class="button" href="/contact/">Let's talk</a> <a class="button secondary" href="/clients/">Read client testimonials</a></p>
+<p><a class="button" href="/contact/">Let’s talk</a> <a class="button secondary" href="/clients/">Read client testimonials</a></p>
