@@ -74,7 +74,7 @@
 <p><label for="f-org">Organization <span class="opt">(optional)</span></label><input id="f-org" name="organization" autocomplete="organization"></p>
 <p><label for="f-msg">How can we help?</label><textarea id="f-msg" name="message" rows="6" required></textarea></p>
 <p><button class="button" type="submit">Send message</button></p>
-<p class="form-error" hidden>Sorry, the message didn't go through. Please try again, or call 510.523.1112.</p>
+<p class="form-error" hidden>Sorry, the message didn't go through. Please try again in a few minutes.</p>
 </form>
 <script>
 // Formspree's free plan can't redirect to our own page, so send in the background and go to /contact/thanks/ ourselves.
@@ -97,7 +97,6 @@ document.querySelector('.contact-form').addEventListener('submit', async (e) => 
     <div>
       <p class="footer-name">Grant and Associates</p>
       <p>Media and presentation coaching since 1997. Speaking for Impact®.</p>
-      <p class="small">Prefer to call? <a href="tel:+15105231112">510.523.1112</a></p>
     </div>
     <nav aria-label="Footer"><ul>
       <li><a href="/coaching-training/">Coaching &amp; Training</a></li>
