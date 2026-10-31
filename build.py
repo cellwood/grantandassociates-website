@@ -109,7 +109,7 @@ ORG, JUDY = BASE + "/#org", BASE + "/about/#judy"
 def schema_ld(fm, url, title, desc, canonical, article):
     """JSON-LD for search engines and AI answers: who Judy and the firm are, what each page is, and where it sits."""
     org = {"@type": "ProfessionalService", "@id": ORG, "name": SITE["name"], "url": SITE["url"], "foundingDate": "1997",
-           "description": SITE["description"], "telephone": SITE["phone_e164"], "logo": BASE + "/assets/logo.svg",
+           "description": SITE["description"], "logo": BASE + "/assets/logo.svg",
            "image": BASE + "/assets/img/share.jpg", "founder": {"@id": JUDY}, "areaServed": "San Francisco Bay Area and nationwide",
            "knowsAbout": ["Media training", "Presentation training", "Public speaking coaching", "Executive coaching", "Speechwriting", "TV talent coaching"]}
     judy = {"@type": "Person", "@id": JUDY, "name": "Judy Grant", "jobTitle": "Principal", "worksFor": {"@id": ORG},
@@ -202,7 +202,6 @@ def page_html(fm, content, url, article=False):
     <div>
       <p class="footer-name">{SITE['name']}</p>
       <p>{SITE['tagline']}</p>
-      <p class="small">Prefer to call? <a href="tel:{SITE['phone_e164']}">{SITE['phone']}</a></p>
     </div>
     <nav aria-label="Footer"><ul>
       <li><a href="/coaching-training/">Coaching &amp; Training</a></li>
@@ -335,7 +334,7 @@ def form_html():
 <p><label for="f-org">Organization <span class="opt">(optional)</span></label><input id="f-org" name="organization" autocomplete="organization"></p>
 <p><label for="f-msg">How can we help?</label><textarea id="f-msg" name="message" rows="6" required></textarea></p>
 <p><button class="button" type="submit">Send message</button></p>
-<p class="form-error" hidden>Sorry, the message didn't go through. Please try again, or call 510.523.1112.</p>
+<p class="form-error" hidden>Sorry, the message didn't go through. Please try again in a few minutes.</p>
 </form>""" + ("" if not live else """
 <script>
 // Formspree's free plan can't redirect to our own page, so send in the background and go to /contact/thanks/ ourselves.
@@ -394,7 +393,7 @@ def main():
     # llms.txt: a plain summary of the site for AI tools (llmstxt.org)
     sec = lambda pre: "".join(f"- [{p['short']}]({BASE}{p['url']}): {p['fm'].get('description', '')}\n" for p in PAGES if p["url"].startswith(pre) and p["url"] != pre and not p["fm"].get("noindex"))
     (OUT / "llms.txt").write_text(f"# {SITE['name']}\n\n> {SITE['description']}\n\n"
-        f"Principal: Judy Grant. {DATA['schema']['judy_description']} Phone: {SITE['phone']}. Contact: {BASE}/contact/\n\n"
+        f"Principal: Judy Grant. {DATA['schema']['judy_description']} Contact: {BASE}/contact/\n\n"
         f"## About\n\n- [About Judy Grant]({BASE}/about/): {next(p['fm'].get('description', '') for p in PAGES if p['url'] == '/about/')}\n"
         f"- [Speaking for Impact®]({BASE}/speaking-for-impact/): {next(p['fm'].get('description', '') for p in PAGES if p['url'] == '/speaking-for-impact/')}\n"
         f"- [Clients]({BASE}/clients/)\n\n"
