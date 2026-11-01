@@ -328,7 +328,7 @@ def form_html():
     return f"""{note}<form class="contact-form" action="https://formspree.io/f/{fid or 'FORM_ID'}" method="POST"{'' if live else ' onsubmit="return false"'}>
 <input type="hidden" name="_subject" value="Website inquiry, grantandassociates.com">
 <input type="hidden" name="_next" value="{SITE['url'].rstrip('/')}/contact/thanks/">
-<p class="hp"><label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 <p><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></p>
 <p><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></p>
 <p><label for="f-org">Organization <span class="opt">(optional)</span></label><input id="f-org" name="organization" autocomplete="organization"></p>
@@ -342,6 +342,7 @@ document.querySelector('.contact-form').addEventListener('submit', async (e) => 
   e.preventDefault();
   const f = e.target, btn = f.querySelector('button'), err = f.querySelector('.form-error');
   btn.disabled = true; err.hidden = true;
+  f.elements._gotcha.value = ''; // browser autofill can fill the trap field, which makes Formspree file a real message as spam
   try {
     const r = await fetch(f.action, {method: 'POST', body: new FormData(f), headers: {Accept: 'application/json'}});
     if (r.ok) { location.href = '/contact/thanks/'; return; }
